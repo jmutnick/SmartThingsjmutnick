@@ -9,6 +9,8 @@ definition(
     iconX3Url: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience@2x.png"
 )	
 
+//this is a test using github and eclipse
+
 preferences {
 	section("Choose your preferences...") {
         input "myCamera","capability.imageCapture", title: "Select Camera", submitOnChange: true
