@@ -10,6 +10,7 @@ definition(
 )	
 
 //this is a test using github and eclipse
+//making this change in smartthings ide
 
 preferences {
 	section("Choose your preferences...") {
