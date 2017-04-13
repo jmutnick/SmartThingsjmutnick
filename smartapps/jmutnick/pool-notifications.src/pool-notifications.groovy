@@ -10,8 +10,11 @@ definition(
 
 
 preferences {
-    section("Choose humidity sensor and exhaust fan:") {
+    section("Choose switch:") {
         input "pool", "capability.switch", title: "Pool Switch"
+    }
+    section("Send Notifications?") {
+        input("recipients", "contact", title: "Send notifications to", multiple:true)
     }
 }
 
@@ -41,6 +44,9 @@ def PoolOnEvent(evt){
     try {
         httpPost(params) { resp -> 
             log.debug "Pool Control Turned On"
+            if (location.contactBookEnabled && recipients) {
+            	sendNotificationToContacts("Pool Control Turned On", recipients)
+        	}
         }
     } catch (e) {
         log.error "something went wrong: $e"
@@ -57,6 +63,9 @@ def PoolOffEvent(evt){
     try {
         httpPost(params) { resp -> 
             log.debug "Pool Control Turned Off"
+            if (location.contactBookEnabled && recipients) {
+            	sendNotificationToContacts("Pool Control Turned Off", recipients)
+        	}
         }
     } catch (e) {
         log.error "something went wrong: $e"
