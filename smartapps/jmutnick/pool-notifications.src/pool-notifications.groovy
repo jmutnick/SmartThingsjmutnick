@@ -37,7 +37,7 @@ def initialize() {
 def PoolOnEvent(evt){    
     def params = [
         uri: "https://hooks.slack.com/services/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",
-        body: '{"text": "Pool Control Turned On by SmartThings"}',
+        body: '{"text": ":smartthings: Pool Control Turned On by SmartThings"}',
         contentType: "application/x-www-form-urlencoded",
     ]
     
@@ -56,7 +56,7 @@ def PoolOnEvent(evt){
 def PoolOffEvent(evt){
      def params = [
         uri: "https://hooks.slack.com/services/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",
-        body: '{"text": "Pool Control Turned Off by SmartThings"}',
+        body: '{"text": ":smartthings: Pool Control Turned Off by SmartThings"}',
         contentType: "application/x-www-form-urlencoded",
     ]
     
